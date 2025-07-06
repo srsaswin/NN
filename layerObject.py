@@ -13,7 +13,7 @@ X = [[1,2,3,2.5],
 class Layer_Dense:
 
     '''
-    print(np.random.rand(4,5)) need not mul by 0.1 becouse thr random is in range from 0 to 1 correctly
+    print(np.random.rand(4,5)) need not mul by 0.1 if we use rand() thr random is in range from 0 to 1 correctly
     [[0.07713206 0.00207519 0.06336482 0.07488039 0.0498507 ]
     [0.02247966 0.01980629 0.07605307 0.01691108 0.00883398]
     [0.06853598 0.09533933 0.00039483 0.05121923 0.0812621 ]
@@ -24,7 +24,7 @@ class Layer_Dense:
     '''
 
     def __init__(self,n_inputs,n_neurons):
-        self.weight = np.random.rand(n_inputs,n_neurons)
+        self.weight = 0.10 * np.random.randn(n_inputs,n_neurons) #here we use randn()
         self.biases = np.zeros((1,n_neurons))
 
     def forward(self,input):
